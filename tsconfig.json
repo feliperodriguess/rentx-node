@@ -8,17 +8,21 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "baseUrl": "./",
-    "paths": {
-      "_config/*": ["src/config/*"],
-      "_database/*": ["src/database/*"],
-      "_errors/*": ["src/errors/*"],
-      "_middlewares/*": ["src/middlewares/*"],
-      "_models/*": ["src/models/*"],
-      "_repositories/*": ["src/repositories/*"],
-      "_services/*": ["src/services/*"],
-      "_shared/*": ["src/shared/*"],
-      "_utils/*": ["src/utils/*"]
-    }
+    "rootDir": "./",
+    // "baseUrl": "./src",
+    "outDir": "./dist",
+    "sourceMap": true
+    // "paths": {
+    //   "_config/*": ["config/*"],
+    //   "_database/*": ["database/*"],
+    //   "_errors/*": ["errors/*"],
+    //   "_middlewares/*": ["middlewares/*"],
+    //   "_models/*": ["models/*"],
+    //   "_repositories/*": ["repositories/*"],
+    //   "_routes/*": ["routes/*"],
+    //   "_services/*": ["services/*"],
+    //   "_shared/*": ["shared/*"],
+    //   "_utils/*": ["utils/*"]
+    // }
   }
 }

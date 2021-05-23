@@ -1,9 +1,11 @@
-import express from "express"
+import express from 'express'
+import { categoriesRoutes, specificationsRoutes } from './routes'
 
 const app = express()
 
 app.use(express.json())
 
-app.get("/", (request, response) => response.json({ hello: "Hey buddy! 🍺" }))
+app.use('/categories', categoriesRoutes)
+app.use('/specifications', specificationsRoutes)
 
 export default app
