@@ -1,4 +1,4 @@
-import { CreateSpecificationController } from './create'
-import { ListSpecificationsController } from './list'
+import { createSpecificationController } from './create'
+import { listSpecificationsController } from './list'
 
-export { ListSpecificationsController, CreateSpecificationController }
+export { createSpecificationController, listSpecificationsController }

@@ -5,23 +5,19 @@ import {
   createCategoryController,
   importCategoryController,
   listCategoriesController
-} from '../services/categories'
+} from '../controllers/categories'
 
 const categoriesRoutes = Router()
 const upload = multer({
   dest: './tmp'
 })
 
-categoriesRoutes.post('/', (request, response) => {
-  return createCategoryController.handle(request, response)
-})
-
-categoriesRoutes.get('/', (request, response) => {
-  return listCategoriesController.handle(request, response)
-})
-
-categoriesRoutes.post('/import', upload.single('file'), (request, response) => {
-  return importCategoryController.handle(request, response)
-})
+categoriesRoutes.post('/', createCategoryController.handle)
+categoriesRoutes.get('/', listCategoriesController.handle)
+categoriesRoutes.post(
+  '/import',
+  upload.single('file'),
+  importCategoryController.handle
+)
 
 export { categoriesRoutes }

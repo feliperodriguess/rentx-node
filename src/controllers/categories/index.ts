@@ -1,9 +1,9 @@
-import { CreateCategoryController } from './create'
-import { ListCategoriesController } from './list'
-import { ImportCategoryController } from './import'
+import { createCategoryController } from './create'
+import { listCategoriesController } from './list'
+import { importCategoryController } from './import'
 
 export {
-  CreateCategoryController,
-  ListCategoriesController,
-  ImportCategoryController
+  createCategoryController,
+  listCategoriesController,
+  importCategoryController
 }

@@ -1,14 +1,18 @@
 import { Request, Response } from 'express'
+import { container } from 'tsyringe'
 
-import { ISpecificationsRepository } from '../../repositories/specifications/constants'
+import { ListSpecificationsService } from '../../services/specifications/list'
 
 class ListSpecificationsController {
-  constructor(private specificationsRepository: ISpecificationsRepository) {}
-
-  handle(request: Request, response: Response): Response {
-    const specifications = this.specificationsRepository.list()
+  async handle(request: Request, response: Response): Promise<Response> {
+    const listSpecificationsService = container.resolve(
+      ListSpecificationsService
+    )
+    const specifications = await listSpecificationsService.execute()
     return response.json(specifications)
   }
 }
 
-export { ListSpecificationsController }
+const listSpecificationsController = new ListSpecificationsController()
+
+export { ListSpecificationsController, listSpecificationsController }

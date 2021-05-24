@@ -1,14 +1,16 @@
 import { Request, Response } from 'express'
+import { container } from 'tsyringe'
 
-import { ICategoriesRepository } from '../../repositories/categories/constants'
+import { ListCategoriesService } from '../../services/categories/list'
 
 class ListCategoriesController {
-  constructor(private categoriesRepository: ICategoriesRepository) {}
-
-  handle(request: Request, response: Response): Response {
-    const categories = this.categoriesRepository.list()
+  async handle(request: Request, response: Response): Promise<Response> {
+    const listCategoriesService = container.resolve(ListCategoriesService)
+    const categories = await listCategoriesService.execute()
     return response.json(categories)
   }
 }
 
-export { ListCategoriesController }
+const listCategoriesController = new ListCategoriesController()
+
+export { ListCategoriesController, listCategoriesController }
